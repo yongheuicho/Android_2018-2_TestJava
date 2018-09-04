@@ -6,40 +6,40 @@ import android.view.View;
 import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
-    protected int[] a;  // int array
+    protected int[] arrayData;  // int array
     protected Button btCalc;    // Calculation button
 
     protected void makeArray(int nSize) {
 
     }
 
-    protected void fill(int nSize) {
+    protected void fillArray(int nSize) {
 
     }
 
-    protected double avg(int nSize) {   // 평균
+    protected double getAvg(int nSize) {   // 평균
         return 0.;
     }
 
-    protected double var(int nSize) {   // 분산
+    protected double getVar(int nSize) {   // 분산
         return 0.;
     }
 
-    protected double std(int nSize) {   // 표준편차
+    protected double getStd(int nSize) {   // 표준편차
         return 0.;
     }
 
-    protected void print(double x1, double x2, double x3) {
+    protected void printTextView(double avg, double var, double std) {
 
     }
 
-    protected void calc() {
+    protected void calcArrayStat() {
         makeArray(10000);
-        fill(10000);
-        double x1 = avg(10000);
-        double x2 = var(10000);
-        double x3 = std(10000);
-        print(x1, x2, x3);
+        fillArray(10000);
+        double avg = getAvg(10000);
+        double var = getVar(10000);
+        double std = getStd(10000);
+        printTextView(avg, var, std);
     }
 
     @Override
@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
         btCalc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                calc();
+                calcArrayStat();
             }
         });
     }
