@@ -31,7 +31,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     protected double getVar(int nSize) {   // 분산
-        return 0.;
+        double sumSquare = 0.;
+        for (int i = 0; i < nSize; i++) {
+            sumSquare += arrayData[i]*arrayData[i];
+        }
+        double avg = getAvg(nSize);
+        return sumSquare / nSize - avg*avg;
     }
 
     protected double getStdDev(int nSize) {   // 표준편차
@@ -41,6 +46,10 @@ public class MainActivity extends AppCompatActivity {
     protected void printTextView(double avg, double var, double stdDev) {
         String sAvg = String.format("평균 = %g", avg);
         tvAvg.setText(sAvg);
+        String sVar = String.format("분산 = %g", var);
+        tvVar.setText(sVar);
+        String sStdDev = String.format("표준편차 = %g", stdDev);
+        tvStdDev.setText(sStdDev);
     }
 
     protected void calcArrayStat() {
